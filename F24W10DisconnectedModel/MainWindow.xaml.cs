@@ -35,5 +35,23 @@ namespace F24W10DisconnectedModel
             DatasetWithMultipleTables win2 = new DatasetWithMultipleTables();
             win2.Show();
         }
+
+        private void btnFind_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+            var row = crud.GetProductById(id);
+
+            if (row != null)
+            {
+                txtName.Text = row["ProductName"].ToString();
+                txtPrice.Text = row["UnitPrice"].ToString();
+                txtQuantity.Text = row["UnitsInStock"].ToString();
+            }
+            else
+            {
+                txtName.Text = txtPrice.Text = txtQuantity.Text = "";
+                MessageBox.Show("Invalid ID. Please try again.");
+            }
+        }
     }
 }

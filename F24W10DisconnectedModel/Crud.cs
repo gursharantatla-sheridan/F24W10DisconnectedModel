@@ -34,13 +34,22 @@ namespace F24W10DisconnectedModel
             tbl = ds.Tables[0];
 
             // define the primary key
-
+            DataColumn[] pk = new DataColumn[1];
+            pk[0] = tbl.Columns["ProductID"];
+            pk[0].AutoIncrement = true;
+            tbl.PrimaryKey = pk;
         }
 
         public DataTable GetAllProducts()
         {
             FillDataSet();
             return tbl;
+        }
+
+        public DataRow GetProductById(int id)
+        {
+            var row = tbl.Rows.Find(id);
+            return row;
         }
     }
 }
