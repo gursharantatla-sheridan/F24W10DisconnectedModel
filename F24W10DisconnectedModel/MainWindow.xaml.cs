@@ -16,9 +16,16 @@ namespace F24W10DisconnectedModel
     /// </summary>
     public partial class MainWindow : Window
     {
+        Data data = new Data();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnLoadAllProducts_Click(object sender, RoutedEventArgs e)
+        {
+            grdProducts.ItemsSource = data.GetAllProducts().DefaultView;
         }
     }
 }
