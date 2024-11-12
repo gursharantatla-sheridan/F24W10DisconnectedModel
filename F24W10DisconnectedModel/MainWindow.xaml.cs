@@ -27,5 +27,11 @@ namespace F24W10DisconnectedModel
         {
             grdProducts.ItemsSource = data.GetAllProducts().DefaultView;
         }
+
+        private void btnShowWindow2_Click(object sender, RoutedEventArgs e)
+        {
+            DatasetWithMultipleTables win2 = new DatasetWithMultipleTables();
+            win2.Show();
+        }
     }
 }
